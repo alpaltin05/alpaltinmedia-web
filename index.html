@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alp Altın Media</title>
+<meta name="description" content="Instagram içerik üretimi ve markanıza özel içerikler. Her işletmenin ihtiyacına göre hazırlanan aylık hizmet paketleri.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF8F6;          /* pudra krem */
+  --surface:#FFFFFF;
+  --blush:#F4E1DA;       /* pudra pembe */
+  --rose:#EBCBC1;        /* gül kurusu açık */
+  --nude:#EFE4DA;        /* nude */
+  --lilac:#E9E3EE;       /* pudra lila */
+  --mist:#E2EAEE;        /* pudra mavi */
+  --ink:#1D1D1F;
+  --text:#3A3A3C;
+  --muted:#86868B;
+  --line:rgba(29,29,31,.08);
+  --gold:#C8A04A;
+  --rec:#E4572E;
+  --radius:28px;
+  --shadow:0 30px 60px -30px rgba(120,80,70,.25),0 10px 24px -12px rgba(120,80,70,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3{color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;letter-spacing:-.025em;line-height:1.05;font-weight:700}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--gold)}
+.lead{font-size:clamp(19px,2.1vw,24px);color:var(--muted);line-height:1.4;font-weight:500;letter-spacing:-.01em}
+
+/* Butonlar */
+.btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .2s,background .2s,box-shadow .2s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-1px);box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+.btn-soft{background:rgba(255,255,255,.7);color:var(--ink);border:1px solid var(--line)}
+.btn-soft:hover{background:#fff}
+.link{color:var(--ink);font-weight:600;display:inline-flex;align-items:center;gap:4px}
+.link::after{content:"›";font-size:1.25em;line-height:1;transition:transform .2s}
+.link:hover::after{transform:translateX(3px)}
+
+/* Navigasyon */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,248,246,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;height:64px;gap:28px}
+.nav-logo img{height:48px;width:auto;margin-left:-8px}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:14px;color:var(--text)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-cta .pay{font-size:14px;font-weight:500}
+.nav-cta .btn{height:36px;padding:0 16px;font-size:14px}
+.menu-btn{display:none;margin-left:auto;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:1.5px;background:var(--ink);margin:5px auto;transition:.25s}
+
+/* Hero */
+.hero{padding:96px 0 0;text-align:center;position:relative}
+.hero::before{content:"";position:absolute;inset:-120px 0 auto;height:760px;z-index:-1;
+  background:radial-gradient(600px 380px at 20% 30%,var(--blush),transparent 70%),
+             radial-gradient(520px 360px at 82% 20%,var(--lilac),transparent 70%),
+             radial-gradient(520px 360px at 60% 70%,var(--nude),transparent 70%)}
+.hero h1{font-size:clamp(38px,7.4vw,92px);max-width:16ch;margin:18px auto 22px}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#C98E7E,#C8A04A 60%,#B98AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{max-width:640px;margin:0 auto}
+.hero-actions{display:flex;gap:22px;justify-content:center;align-items:center;margin-top:34px;flex-wrap:wrap}
+
+/* Sahne: telefon + yüzen kartlar */
+.stage{position:relative;height:620px;margin-top:72px}
+.phone{position:absolute;left:50%;top:0;transform:translateX(-50%);width:300px;height:610px;border-radius:52px;background:#111;padding:12px;box-shadow:var(--shadow),0 0 0 1px rgba(0,0,0,.2)}
+.screen{width:100%;height:100%;border-radius:41px;background:#fff;overflow:hidden;position:relative;text-align:left}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;background:#111;border-radius:20px;z-index:2}
+.ig-head{padding:48px 16px 12px;display:flex;align-items:center;gap:14px}
+.ig-ava{width:62px;height:62px;border-radius:50%;padding:3px;background:conic-gradient(var(--gold),var(--rec),#C98E7E,var(--gold))}
+.ig-ava div{width:100%;height:100%;border-radius:50%;background:#111418 url(assets/ikon.svg) center/62% no-repeat;border:3px solid #fff}
+.ig-stats{display:flex;gap:14px;font-size:11px;color:var(--muted)}
+.ig-stats b{display:block;color:var(--ink);font-size:14px}
+.ig-name{padding:0 16px;font-size:13px;color:var(--ink);font-weight:600}
+.ig-bio{padding:2px 16px 12px;font-size:11.5px;color:var(--muted);line-height:1.35}
+.ig-hl{display:flex;gap:12px;padding:0 16px 14px}
+.ig-hl i{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:block;background:var(--blush)}
+.ig-hl i:nth-child(2){background:var(--lilac)}.ig-hl i:nth-child(3){background:var(--nude)}.ig-hl i:nth-child(4){background:var(--mist)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grid div{aspect-ratio:4/5;position:relative}
+.ig-grid div:nth-child(1){background:linear-gradient(160deg,#F4E1DA,#E8C2B6)}
+.ig-grid div:nth-child(2){background:linear-gradient(160deg,#E9E3EE,#CFC3DA)}
+.ig-grid div:nth-child(3){background:linear-gradient(160deg,#EFE4DA,#DCC6B2)}
+.ig-grid div:nth-child(4){background:linear-gradient(160deg,#E2EAEE,#C4D3DB)}
+.ig-grid div:nth-child(5){background:#1D1D1F}
+.ig-grid div:nth-child(6){background:linear-gradient(160deg,#F7E9E3,#EBCBC1)}
+.ig-grid div:nth-child(7){background:linear-gradient(160deg,#EFE4DA,#E4CFBF)}
+.ig-grid div:nth-child(8){background:linear-gradient(160deg,#F4E1DA,#DDB0A3)}
+.ig-grid div:nth-child(9){background:linear-gradient(160deg,#E9E3EE,#D8CDE2)}
+.ig-grid .reel::after{content:"";position:absolute;top:8px;right:8px;border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+.ig-grid div:nth-child(5)::before{content:"";position:absolute;inset:0;background:url(assets/ikon.svg) center/46% no-repeat}
+
+.float{position:absolute;background:rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);border-radius:22px;box-shadow:var(--shadow);padding:18px 20px;text-align:left;animation:bob 6s ease-in-out infinite}
+.float small{display:block;font-size:12px;color:var(--muted);font-weight:500}
+.float strong{display:block;color:var(--ink);font-size:15px;margin-top:2px}
+.f-cal{left:calc(50% - 470px);top:70px;width:250px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
+.cal i{aspect-ratio:1;border-radius:6px;background:#F3EEEA;display:block}
+.cal i.p{background:var(--rose)}.cal i.r{background:var(--lilac)}.cal i.s{background:var(--gold)}
+.legend{display:flex;gap:12px;margin-top:12px;font-size:11px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:0;background:var(--rose)}
+.legend span:nth-child(2)::before{background:var(--lilac)}
+.f-reel{right:calc(50% - 440px);top:40px;width:200px;animation-delay:-2s}
+.reel-thumb{height:120px;border-radius:14px;margin-top:12px;background:linear-gradient(150deg,var(--lilac),var(--rose));position:relative}
+.reel-thumb::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.bar{height:4px;border-radius:4px;background:#EEE6E1;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;width:64%;background:var(--ink);border-radius:4px}
+.f-report{right:calc(50% - 400px);top:330px;width:230px;animation-delay:-4s}
+.spark{display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:12px}
+.spark i{flex:1;border-radius:5px 5px 2px 2px;background:var(--blush);display:block}
+.spark i:last-child{background:var(--gold)}
+.f-msg{left:calc(50% - 420px);top:380px;width:230px;animation-delay:-3s;display:flex;gap:12px;align-items:center}
+.f-msg .dot{width:40px;height:40px;border-radius:12px;background:var(--blush);flex:none;display:grid;place-items:center}
+.f-msg .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--rec)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* Bölümler */
+section{padding:120px 0}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(36px,5.2vw,64px);margin:12px 0 18px}
+
+/* Teklif bandı */
+.offer{padding-top:80px}
+.offer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
+.card{background:var(--surface);border-radius:var(--radius);padding:44px;position:relative;overflow:hidden}
+.offer .card h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:14px}
+.steps-mini{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.steps-mini div{display:flex;gap:16px;align-items:center;padding:16px 18px;border-radius:16px;background:var(--bg);font-weight:500;color:var(--ink)}
+.steps-mini span{font-size:13px;color:var(--gold);font-weight:700;min-width:22px}
+.pay-card{background:var(--ink);color:#d2d2d7;display:flex;flex-direction:column}
+.pay-card h3{color:#fff;font-size:30px;margin:10px 0 10px}
+.pay-card .eyebrow{color:var(--rose)}
+.pay-card .btn{margin-top:auto;align-self:flex-start;background:#fff;color:var(--ink)}
+.pay-card .chip{width:52px;height:38px;border-radius:8px;background:linear-gradient(135deg,#E8CF95,#C8A04A);margin-bottom:28px;position:relative}
+.pay-card .chip::after{content:"";position:absolute;inset:9px 14px;border:1.5px solid rgba(0,0,0,.18);border-radius:4px}
+.pay-card .secure{font-size:13px;color:#86868b;margin-top:18px}
+
+/* Hizmetler (bento) */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.svc{grid-column:span 3;min-height:560px;display:flex;flex-direction:column}
+.svc.a{background:linear-gradient(180deg,var(--blush),#F9EEEA)}
+.svc.b{background:linear-gradient(180deg,var(--lilac),#F4F0F6)}
+.svc .num{font-size:14px;font-weight:700;color:var(--gold)}
+.svc h3{font-size:clamp(28px,3vw,40px);margin:10px 0 12px}
+.svc p{color:var(--text);max-width:36ch}
+.ticks{list-style:none;margin-top:26px;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;align-items:flex-start;color:var(--ink);font-weight:500}
+.ticks li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;margin-top:1px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23C8A04A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.svc-art{margin-top:auto;padding-top:36px;display:flex;gap:10px}
+.svc-art .post{flex:1;aspect-ratio:4/5;border-radius:16px;background:#fff;box-shadow:0 14px 30px -18px rgba(120,80,70,.4);padding:10px;display:flex;flex-direction:column;gap:8px}
+.svc-art .post i{display:block;flex:1;border-radius:10px;background:var(--rose)}
+.svc-art .post b{display:block;height:6px;border-radius:3px;background:#EFE7E2;width:70%}
+.svc-art .post:nth-child(2) i{background:var(--nude)}.svc-art .post:nth-child(3) i{background:var(--gold);opacity:.75}
+.svc.b .svc-art .post i{background:#D8CDE2}.svc.b .svc-art .post:nth-child(2) i{background:var(--ink)}.svc.b .svc-art .post:nth-child(3) i{background:var(--mist)}
+.svc.b .svc-art .post:nth-child(2){transform:translateY(-14px)}
+.svc.b .svc-art .post:nth-child(2) i{position:relative}
+.svc.b .svc-art .post:nth-child(2) i::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.svc-wide{grid-column:span 6;background:var(--surface);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:34px 44px}
+.svc-wide p{font-size:20px;color:var(--ink);font-weight:500;letter-spacing:-.01em;max-width:52ch}
+
+/* Fiyatlandırma */
+.pricing{background:var(--surface)}
+.factors{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.factor{background:var(--bg);border-radius:var(--radius);padding:36px}
+.factor .letter{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:700;color:var(--ink);font-size:20px;background:var(--blush);margin-bottom:40px}
+.factor:nth-child(2) .letter{background:var(--lilac)}.factor:nth-child(3) .letter{background:var(--nude)}
+.factor h3{font-size:22px;letter-spacing:-.015em;line-height:1.25}
+.note{display:flex;gap:16px;align-items:flex-start;margin-top:28px;padding:22px 26px;border-radius:20px;background:var(--bg);font-size:15px;color:var(--muted)}
+.note .shield{flex:none;width:36px;height:36px;border-radius:10px;background:var(--mist);display:grid;place-items:center}
+.note a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+/* Süreç */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;position:relative}
+.timeline::before{content:"";position:absolute;top:27px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--rose),var(--lilac),var(--nude),var(--gold));border-radius:2px}
+.step{text-align:center;padding:0 8px}
+.step .n{width:56px;height:56px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);position:relative;box-shadow:0 8px 20px -12px rgba(120,80,70,.35)}
+.step:last-child .n{background:var(--ink);color:#fff}
+.step h3{font-size:21px;letter-spacing:-.015em;margin-bottom:8px;line-height:1.2}
+.step p{font-size:15px;color:var(--muted)}
+
+/* Hakkımızda */
+.about{padding:40px 0 120px}
+.about .card{background:linear-gradient(135deg,var(--blush),var(--lilac) 55%,var(--mist));padding:80px 64px;text-align:center}
+.about blockquote{font-size:clamp(26px,3.4vw,42px);color:var(--ink);font-weight:600;letter-spacing:-.02em;line-height:1.2;max-width:24ch;margin:16px auto 28px}
+.about .sig{display:inline-flex;align-items:center;gap:12px;font-size:15px;color:var(--text)}
+.about .sig img{width:40px;height:40px}
+
+/* İletişim */
+.contact{background:var(--ink);color:#a1a1a6;border-radius:40px 40px 0 0}
+.contact .sec-head h2{color:#fff}
+.contact .eyebrow{color:var(--rose)}
+.contact .lead{color:#a1a1a6}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.c-item{border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:28px;transition:background .2s}
+.c-item:hover{background:rgba(255,255,255,.04)}
+.c-item small{font-size:12px;letter-spacing:.08em;font-weight:600;color:var(--rose)}
+.c-item div{color:#f5f5f7;font-size:20px;font-weight:600;margin-top:10px;letter-spacing:-.01em}
+.contact .btn-dark{background:#fff;color:var(--ink)}
+footer{background:var(--ink);color:#6e6e73;font-size:12.5px;padding:0 0 40px}
+footer .wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+footer .legal{display:flex;flex-wrap:wrap;gap:8px 20px}
+footer a:hover{color:#f5f5f7}
+footer .copy{margin-left:auto}
+
+/* Görünüm animasyonu */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.float{animation:none}html{scroll-behavior:auto}}
+
+/* Mobil */
+@media (max-width:980px){
+  .f-cal,.f-msg{display:none}
+  .f-reel{right:16px;top:20px}.f-report{right:auto;left:16px;top:360px}
+  .offer-grid,.factors,.contact-grid{grid-template-columns:1fr}
+  .svc{grid-column:span 6;min-height:0}
+  .timeline{grid-template-columns:1fr 1fr;row-gap:44px}.timeline::before{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:block}
+  .nav.open .nav-links{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(251,248,246,.97);backdrop-filter:blur(20px);padding:8px 22px 20px;border-bottom:1px solid var(--line)}
+  .nav.open .nav-links a{padding:14px 0;font-size:20px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line)}
+  .nav.open .menu-btn span:first-child{transform:translateY(3.25px) rotate(45deg)}
+  .nav.open .menu-btn span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+  .hero{padding-top:56px}
+  .stage{height:560px;margin-top:48px}
+  .phone{width:260px;height:530px;border-radius:46px}
+  .screen{border-radius:36px}
+  .f-reel,.f-report{display:none}
+  section{padding:84px 0}
+  .card{padding:30px 24px}
+  .svc-wide{flex-direction:column;align-items:flex-start;padding:30px 24px}
+  .about .card{padding:54px 24px}
+  .timeline{grid-template-columns:1fr}
+  .step{display:grid;grid-template-columns:56px 1fr;gap:4px 18px;text-align:left;align-items:start}
+  .step .n{margin:0;grid-row:span 2}
+  footer .copy{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#" class="nav-logo" aria-label="Alp Altın Media"><img src="assets/logo.svg" alt="Alp Altın Media"></a>
+    <nav class="nav-links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#fiyatlandirma">Fiyatlandırma</a>
+      <a href="#surec">Nasıl çalışır</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#odeme" class="pay">Ödeme yap</a>
+      <a href="#iletisim" class="btn btn-dark">Fiyat al</a>
+    </div>
+    <button class="menu-btn" aria-label="Menü" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow reveal">Dijital pazarlama ajansı</div>
+      <h1 class="reveal">Markanızı akılda kalan bir <em>hikâyeye</em> dönüştürüyoruz.</h1>
+      <p class="lead reveal">Instagram içerik üretimi ve markanıza özel içerikler. Her işletmenin ihtiyacına göre hazırlanan aylık hizmet paketleriyle.</p>
+      <div class="hero-actions reveal">
+        <a href="#iletisim" class="btn btn-dark">Size özel fiyat alın</a>
+        <a href="#hizmetler" class="link">Hizmetleri inceleyin</a>
+      </div>
+    </div>
+
+    <div class="stage reveal" aria-hidden="true">
+      <div class="float f-cal">
+        <small>İçerik takvimi</small>
+        <strong>Bu ayın planı hazır</strong>
+        <div class="cal">
+          <i></i><i class="p"></i><i></i><i class="r"></i><i></i><i class="p"></i><i></i>
+          <i class="r"></i><i></i><i class="p"></i><i></i><i class="s"></i><i></i><i class="r"></i>
+          <i></i><i class="p"></i><i></i><i class="r"></i><i></i><i class="p"></i><i></i>
+          <i class="p"></i><i></i><i class="r"></i><i></i><i class="p"></i><i></i><i class="s"></i>
+        </div>
+        <div class="legend"><span>Gönderi</span><span>Reels</span></div>
+      </div>
+
+      <div class="float f-msg">
+        <div class="dot"></div>
+        <div><small>Yeni teklif</small><strong>Size özel link gönderildi</strong></div>
+      </div>
+
+      <div class="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="ig-head">
+            <div class="ig-ava"><div></div></div>
+            <div class="ig-stats"><span><b>128</b>gönderi</span><span><b>Reels</b>her hafta</span><span><b>1</b>hikâye</span></div>
+          </div>
+          <div class="ig-name">markanız</div>
+          <div class="ig-bio">Akılda kalan içerikler ✦<br>Alp Altın Media ile yönetiliyor</div>
+          <div class="ig-hl"><i></i><i></i><i></i><i></i></div>
+          <div class="ig-grid">
+            <div></div><div class="reel"></div><div></div>
+            <div class="reel"></div><div></div><div></div>
+            <div></div><div class="reel"></div><div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float f-reel">
+        <small>Reels kurgusu</small>
+        <strong>Kurgu sürüyor</strong>
+        <div class="reel-thumb"></div>
+        <div class="bar"><i></i></div>
+      </div>
+
+      <div class="float f-report">
+        <small>Aylık performans özeti</small>
+        <strong>Rapor hazır</strong>
+        <div class="spark"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:62%"></i><i style="height:70%"></i><i style="height:92%"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEKLİF + ÖDEME -->
+  <section class="offer" id="odeme">
+    <div class="wrap offer-grid">
+      <div class="card reveal">
+        <div class="eyebrow">Size özel</div>
+        <h2>Her işletmeye özel teklif.</h2>
+        <p class="lead" style="font-size:19px">Fiyat listesi yerine ihtiyacınızı dinliyor, kapsamı ve aylık bedeli size özel hazırlıyoruz.</p>
+        <div class="steps-mini">
+          <div><span>01</span>Formu doldurun</div>
+          <div><span>02</span>Teklifiniz size özel linkle gelsin</div>
+          <div><span>03</span>Onaylayın, çalışmaya başlayalım</div>
+        </div>
+      </div>
+      <div class="card pay-card reveal">
+        <div class="chip"></div>
+        <div class="eyebrow">Müşterimiz misiniz?</div>
+        <h3>Aylık ödemenizi buradan yapın.</h3>
+        <p>Kredi veya banka kartınızla, güvenle.</p>
+        <p class="secure">PayTR güvencesiyle</p>
+        <a href="#" class="btn" style="margin-top:28px">Ödeme yap</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section id="hizmetler" style="padding-top:60px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Hizmetlerimiz</div>
+        <h2>İki hizmet. Tek bir hikâye.</h2>
+        <p class="lead">Tek bir hizmetle başlayabilir ya da ikisini bir arada, aylık bir paket olarak alabilirsiniz.</p>
+      </div>
+      <div class="bento">
+        <article class="card svc a reveal">
+          <div class="num">01</div>
+          <h3>Instagram içerik üretimi</h3>
+          <p>Instagram hesabınız için planlanan, hazırlanan ve paylaşılan içerikler.</p>
+          <ul class="ticks">
+            <li>Aylık Instagram içerik takvimi</li>
+            <li>Paylaşımların hazırlanıp yayınlanması</li>
+            <li>Aylık performans özeti</li>
+          </ul>
+          <div class="svc-art" aria-hidden="true"><div class="post"><i></i><b></b></div><div class="post"><i></i><b></b></div><div class="post"><i></i><b></b></div></div>
+        </article>
+        <article class="card svc b reveal">
+          <div class="num">02</div>
+          <h3>İçerik üretimi</h3>
+          <p>Markanızın diliyle yazılmış metinler, görseller ve kısa videolar.</p>
+          <ul class="ticks">
+            <li>Gönderi ve hikâye tasarımları</li>
+            <li>Reels ve kısa video kurguları</li>
+            <li>Metin ve açıklama yazımı</li>
+          </ul>
+          <div class="svc-art" aria-hidden="true"><div class="post"><i></i><b></b></div><div class="post"><i></i><b></b></div><div class="post"><i></i><b></b></div></div>
+        </article>
+        <div class="card svc-wide reveal">
+          <p>İkisi bir arada mı? Planlamadan üretime, yayından rapora kadar hepsini tek aylık pakette topluyoruz.</p>
+          <a href="#iletisim" class="btn btn-dark">Paket teklifi al</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FİYATLANDIRMA -->
+  <section class="pricing" id="fiyatlandirma">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Fiyatlandırma</div>
+        <h2>Fiyatlandırma nasıl belirlenir?</h2>
+        <p class="lead">Hizmetlerimiz aylık abonelik olarak sunulur. Aylık bedel, işletmenizin ihtiyacına göre size özel teklifle belirlenir ve teklifinizde açıkça yazar.</p>
+      </div>
+      <div class="factors">
+        <div class="factor reveal"><div class="letter">a</div><h3>İçerik üretilecek hesap sayısı</h3></div>
+        <div class="factor reveal"><div class="letter">b</div><h3>Aylık içerik ve video adedi</h3></div>
+        <div class="factor reveal"><div class="letter">c</div><h3>Çalışma süresi ve iletişim yoğunluğu</h3></div>
+      </div>
+      <div class="note reveal">
+        <div class="shield"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <p>Ödemeler her ay kredi veya banka kartınızdan PayTR altyapısıyla otomatik alınır. Kart bilgileriniz Alp Altın Media tarafından saklanmaz. İptal koşulları <a href="#">İptal ve İade Politikası</a>'nda yer alır.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÜREÇ -->
+  <section id="surec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Süreç</div>
+        <h2>Nasıl çalışıyoruz?</h2>
+        <p class="lead">Dört adımda, hiç karmaşa olmadan.</p>
+      </div>
+      <div class="timeline">
+        <div class="step reveal"><div class="n">1</div><h3>Fiyat alın</h3><p>Kısa formu doldurun, işletmenizi ve ihtiyacınızı anlatın.</p></div>
+        <div class="step reveal"><div class="n">2</div><h3>Size özel teklif</h3><p>Kapsam ve aylık bedel, size özel bir linkle e-posta veya WhatsApp'tan gelir.</p></div>
+        <div class="step reveal"><div class="n">3</div><h3>Onay ve ödeme</h3><p>Sözleşmeyi online onaylayın, aboneliğinizi PayTR ile güvenle başlatın.</p></div>
+        <div class="step reveal"><div class="n">4</div><h3>Çalışmaya başlıyoruz</h3><p>Ödemelerinizi ve sözleşmenizi müşteri panelinizden takip edin.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HAKKIMIZDA -->
+  <section class="about">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="eyebrow">Hakkımızda</div>
+        <blockquote>Instagram hesaplarınız için içerik üretiyor, sosyal medya dönüşümünüzde her zaman yanınızda oluyoruz.</blockquote>
+        <div class="sig"><img src="assets/ikon.svg" alt=""> Alp Altın · Üsküdar, İstanbul</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="contact" id="iletisim">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">İletişim</div>
+        <h2>Birlikte başlayalım.</h2>
+        <p class="lead">Formu doldurun, size özel teklifinizi hazırlayıp en kısa sürede dönüş yapalım.</p>
+        <div class="hero-actions"><a href="#" class="btn btn-dark">Fiyat al</a></div>
+      </div>
+      <div class="contact-grid">
+        <a class="c-item reveal" href="https://wa.me/905331282005"><small>TELEFON / WHATSAPP</small><div>0533 128 20 05</div></a>
+        <a class="c-item reveal" href="mailto:info@alpaltinmedia.com"><small>E-POSTA</small><div>info@alpaltinmedia.com</div></a>
+        <div class="c-item reveal"><small>DESTEK SAATLERİ</small><div>Hafta içi 10:00–18:00</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="legal">
+      <a href="#">Genel Şartlar ve Ödeme Sözleşmesi</a>
+      <a href="#">İptal ve İade Politikası</a>
+      <a href="#">Hizmet İfası ve Teslim</a>
+      <a href="#">Gizlilik ve KVKK Aydınlatma Metni</a>
+      <a href="#">Mesafeli Satış Sözleşmesi</a>
+      <a href="#">Ön Bilgilendirme Formu</a>
+    </div>
+    <div class="copy">Ödemeler PayTR güvencesiyle alınır. © 2026 Alp Altın Media</div>
+  </div>
+</footer>
+
+<script>
+  // Kaydırınca yumuşak görünme
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+  // Mobil menüde bağlantıya tıklayınca kapan
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open')})});
+</script>
+</body>
+</html>
